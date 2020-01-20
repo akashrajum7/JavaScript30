@@ -67,7 +67,10 @@
 
       // timing
       console.time("Fetching my github profile");
-      fetch("https://github.com/akashrajum7/").then(response => response.json()).then(data => console.timeEnd("Fetching my github profile"));
+      fetch("https://api.github.com/users/akashrajum7").then(response => response.json()).then(data => {
+        console.log(data);
+        console.timeEnd("Fetching my github profile");
+      });
     </script>
   </body>
 </html>
