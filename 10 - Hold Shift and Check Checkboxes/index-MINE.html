@@ -114,14 +114,14 @@
         document.querySelectorAll('input[type="checkbox"]')
       );
       
-      function getAllNumbersBetween() {
+      function getAllNumbersBetween(arguments) {
         var numbers = [];
         // Handle too few arguments.
         if (arguments.length < 2) {
           return numbers;
         }
         // Make sure x < y.
-        Array.prototype.sort.call(arguments);
+        
         // Assign each argument to a local variable.
         var x = arguments[0];
         var y = arguments[arguments.length - 1];
@@ -140,7 +140,9 @@
           if (shiftKey === true) {
             let checkedCheckboxes = checkboxes.filter(checkbox => checkbox.checked === true);
             if(checkedCheckboxes.length > 1){
-               const checkedKeys = 
+              let checkedKeys = checkedCheckboxes.map(checkbox => parseInt(checkbox.dataset.key));
+              let keysToBeChecked = getAllNumbersBetween(checkedKeys);
+              console.log(keysToBeChecked);
             }
           }
         }
