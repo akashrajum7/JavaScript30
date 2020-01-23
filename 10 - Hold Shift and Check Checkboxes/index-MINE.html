@@ -97,16 +97,20 @@
 
 <script>
   let shiftKey = false;
+  
   window.addEventListener("keydown", event => {
     if(event.keyCode === 16){
       shiftKey = true;
     }
   });
+  
   window.addEventListener("keyup", event => {
     if(event.keyCode === 16){
       shiftKey = false;
     }
   });
+  
+  const checkboxes = Array.from(document.querySelectorAll())
 </script>
 </body>
 </html>
