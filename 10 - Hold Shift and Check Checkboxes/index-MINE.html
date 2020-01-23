@@ -116,12 +116,8 @@
       
       function getAllNumbersBetween(arguments) {
         var numbers = [];
-        // Handle too few arguments.
-        if (arguments.length < 2) {
-          return numbers;
-        }
         // Make sure x < y.
-        
+        arguments.sort();
         // Assign each argument to a local variable.
         var x = arguments[0];
         var y = arguments[arguments.length - 1];
@@ -129,7 +125,7 @@
         if (typeof x != 'number' || typeof y != 'number') {
           return numbers;
         }
-        for (var i = x; i < y; i++) {
+        for (var i = x; i <= y; i++) {
           numbers.push(i);
         }
         return numbers;
@@ -142,7 +138,9 @@
             if(checkedCheckboxes.length > 1){
               let checkedKeys = checkedCheckboxes.map(checkbox => parseInt(checkbox.dataset.key));
               let keysToBeChecked = getAllNumbersBetween(checkedKeys);
-              console.log(keysToBeChecked);
+              keysToBeChecked.map(key => {
+                document.querySelector(`input[data-key="${key}"]`).checked = true;
+              })
             }
           }
         }
