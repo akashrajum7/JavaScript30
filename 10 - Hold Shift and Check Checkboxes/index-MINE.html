@@ -57,39 +57,39 @@
   -->
     <div class="inbox">
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="1"/>
         <p>This is an inbox layout.</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="2"/>
         <p>Check one item</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="3"/>
         <p>Hold down your Shift key</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="4"/>
         <p>Check a lower item</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="5"/>
         <p>Everything in between should also be set to checked</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="6"/>
         <p>Try to do it without any libraries</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="7"/>
         <p>Just regular JavaScript</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="8"/>
         <p>Good Luck!</p>
       </div>
       <div class="item">
-        <input type="checkbox" />
+        <input type="checkbox" data-key="9"/>
         <p>Don't forget to tweet your result!</p>
       </div>
     </div>
@@ -117,12 +117,10 @@
       function checkCheckboxes(event) {
         if (this.checked === true) {
           if (shiftKey === true) {
-            let checkedCheckboxes = checkboxes.forEach((checkbox,idx) => {
-              if(checkbox.checked === true){
-                return idx;
-              }
-            });
-            console.log(checkedCheckboxes);
+            let checkedCheckboxes = checkboxes.filter(checkbox => checkbox.checked === true);
+            if(checkedCheckboxes.length > 1){
+              console.log("should check all inbetween");  
+            }
           }
         }
       }
