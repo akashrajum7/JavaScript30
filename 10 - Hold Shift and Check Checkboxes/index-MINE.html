@@ -110,7 +110,17 @@
     }
   });
   
-  const checkboxes = Array.from(document.querySelectorAll())
+  function checkCheckboxes(event) {
+    console.log(this.checked);
+    if(shiftKey === true){
+      
+    }
+  }
+  
+  const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change",checkCheckboxes);
+  });
 </script>
 </body>
 </html>
