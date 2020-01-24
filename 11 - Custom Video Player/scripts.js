@@ -6,7 +6,6 @@ const progressBar = player.querySelector(".progress__filled");
 const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
-let isClicking = false;
 
 // Write functions
 function togglePlay() {
@@ -21,19 +20,19 @@ function skip() {
   video.currentTime += parseFloat(this.dataset.skip);
 }
 function handleRangeChange() {
-  if()
   video[this.name] = this.value;
 }
-
+function handleProgress() {
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.flexBasis = `${percent}%`;
+}
 // Hook event listeners
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", toggleButton);
 video.addEventListener("pause", toggleButton);
+video.addEventListener('timeupdate', handleProgress);
 toggle.addEventListener("click", togglePlay);
 skipButtons.forEach(button => button.addEventListener("click", skip));
 ranges.forEach(range => {
   range.addEventListener("change", handleRangeChange);
-  range.addEventListener("mousedown", () => isClicking = true);
-  range.addEventListener("mouseup", () => isClicking = false);
-  range.addEventListener("mouseout", ()=> isClicking = false);
 });
