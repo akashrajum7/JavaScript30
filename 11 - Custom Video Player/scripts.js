@@ -13,10 +13,16 @@ function togglePlay() {
   video[method]();
 }
 function toggleButton() {
-  
+  const icon = this.paused ? '►' : '❚ ❚';
+  toggle.textContent = icon;
+}
+function skip(){
+  this.
 }
 
 // Hook event listeners
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", toggleButton);
+video.addEventListener("pause", toggleButton);
 toggle.addEventListener("click", togglePlay);
+skipButtons.forEach(button => button.addEventListener('click', skip));
