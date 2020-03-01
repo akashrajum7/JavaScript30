@@ -15,8 +15,11 @@
       window.addEventListener("keyup", e => {
         console.log(e.key);
         typed.push(e.key);
+        typed.splice(-secret.length - 1, typed.length - secret.length)
         console.log(typed);
-        typed.splice(-secret.length - 1, typed)
+        if(typed.join('').includes(secret)){
+          cornify_add();
+        }
       });
     </script>
   </body>
